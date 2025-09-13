@@ -4,22 +4,38 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Денис Романов — маркетинг и бизнес</title>
-<meta name="description" content="Персональный сайт: консалтинг, кейсы и контакты. Подставьте свои тексты и изображения.">
+<meta name="description" content="Персональный сайт: консалтинг, кейсы и контакты.">
 <style>
-
-:root {
-  --bg:#ffffff;
-  --text:#0b1220;
-  --accent:#0256d6;
-  --muted:#6b7280;
-  --card:#f8fafc;
-  --glass: rgba(2,86,214,0.06);
-  --shadow: 0 6px 30px rgba(8,15,30,0.06);
-}
-
-/* Автоматический переход в тёмную тему */
-@media (prefers-color-scheme: dark) {
   :root {
+    --bg:#ffffff;
+    --text:#0b1220;
+    --accent:#0256d6;
+    --muted:#6b7280;
+    --card:#f8fafc;
+    --glass: rgba(2,86,214,0.06);
+    --shadow: 0 6px 30px rgba(8,15,30,0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg:#0b1220;
+      --text:#f3f4f6;
+      --accent:#3b82f6;
+      --muted:#9ca3af;
+      --card:#1e293b;
+      --glass: rgba(59,130,246,0.08);
+      --shadow: 0 6px 30px rgba(0,0,0,0.5);
+    }
+  }
+  [data-theme="light"] {
+    --bg:#ffffff;
+    --text:#0b1220;
+    --accent:#0256d6;
+    --muted:#6b7280;
+    --card:#f8fafc;
+    --glass: rgba(2,86,214,0.06);
+    --shadow: 0 6px 30px rgba(8,15,30,0.06);
+  }
+  [data-theme="dark"] {
     --bg:#0b1220;
     --text:#f3f4f6;
     --accent:#3b82f6;
@@ -28,140 +44,61 @@
     --glass: rgba(59,130,246,0.08);
     --shadow: 0 6px 30px rgba(0,0,0,0.5);
   }
-}
 
-/* Используем переменные */
-body {
-  background: var(--bg);
-  color: var(--text);
-}
-.card {
-  background: var(--card);
-  color: var(--text);
-}
-a { color: var(--accent); }
-.muted { color: var(--muted); }
-
-  :root{
-    --bg:#ffffff;
-    --accent:#0256d6;
-    --muted:#6b7280;
-    --card:#f8fafc;
-    --glass: rgba(2,86,214,0.06);
-    --maxw:1100px;
-    --radius:14px;
-    --shadow: 0 6px 30px rgba(8,15,30,0.06);
-    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    color-scheme: light;
-  }
   *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
+  body {
     margin:0;
-    background:var(--bg);
-    color:#0b1220;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+    background: var(--bg);
+    color: var(--text);
+    line-height:1.5;
     -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    line-height:1.45;
   }
 
-  .container{max-width:var(--maxw);margin:0 auto;padding:28px;}
+  .container{max-width:1100px;margin:0 auto;padding:28px;}
+
   header{
     position:sticky;top:0;z-index:40;
     backdrop-filter: blur(6px);
-    background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.6));
-    border-bottom: 1px solid rgba(15,23,42,0.04);
+    background: var(--bg);
+    border-bottom:1px solid rgba(15,23,42,0.08);
   }
-  .nav{
-    display:flex;align-items:center;justify-content:space-between;
-    gap:16px;padding:12px 0;
-  }
-  .brand{
-    display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;
-  }
-  .logo{
-    width:44px;height:44px;border-radius:10px;background:var(--glass);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent);
-    box-shadow:var(--shadow);
-  }
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0;}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;}
+  .logo{width:44px;height:44px;border-radius:10px;background:var(--glass);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent);box-shadow:var(--shadow);}
   nav ul{display:flex;gap:18px;list-style:none;padding:0;margin:0}
   nav a{color:var(--muted);text-decoration:none;font-weight:600;font-size:15px}
   nav a:hover{color:var(--accent)}
-  .cta{
-    padding:10px 14px;background:var(--accent);color:#fff;border-radius:10px;text-decoration:none;font-weight:700;box-shadow:0 8px 24px rgba(2,86,214,0.14)
-  }
+  .cta{padding:10px 14px;background:var(--accent);color:#fff;border-radius:10px;text-decoration:none;font-weight:700;box-shadow:0 8px 24px rgba(2,86,214,0.14)}
+  .burger{display:none;border:0;background:transparent;padding:8px;cursor:pointer;font-size:20px}
 
-  /* mobile */
-  .burger{display:none;border:0;background:transparent;padding:8px;cursor:pointer}
+  .theme-toggle{border:0;background:transparent;font-size:20px;cursor:pointer;color:var(--accent);}
+
   @media (max-width:880px){
     nav ul{display:none}
     .burger{display:block}
   }
 
-  /* Hero */
-  .hero{
-    display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center;padding:48px 0;
-  }
-  .hero-left h1{font-size:36px;margin:0 0 12px}
-  .eyebrow{color:var(--accent);font-weight:700;font-size:13px;margin-bottom:8px}
-  .lead{color:var(--muted);font-size:17px;margin-bottom:18px}
-  .hero-cta{display:flex;gap:12px;align-items:center}
-  .light-btn{padding:10px 14px;border-radius:10px;border:1px solid rgba(11,18,32,0.06);background:#fff}
-  .profile-card{
-    background:linear-gradient(180deg,#fff,#fbfdff);
-    border-radius:18px;padding:20px;box-shadow:var(--shadow);display:flex;gap:16px;align-items:center;
-  }
-  .profile-photo{width:96px;height:96px;border-radius:12px;background:linear-gradient(120deg,#e6eefc,#f4f9ff);display:inline-block}
-  .profile-info h3{margin:0;font-size:18px}
-  .profile-info p{margin:4px 0 0;color:var(--muted);font-size:14px}
+  section{padding:42px 0;border-top:1px solid rgba(15,23,42,0.06)}
+  .card{background:var(--card);padding:18px;border-radius:14px;box-shadow:var(--shadow)}
 
-  @media (max-width:880px){
-    .hero{grid-template-columns:1fr;gap:20px}
-    .profile-card{justify-content:space-between}
-    .profile-photo{width:72px;height:72px}
-    .container{padding:18px}
-    .hero-left h1{font-size:26px}
-  }
-
-  /* Sections */
-  section{padding:42px 0;border-top:1px solid rgba(15,23,42,0.03)}
-  .grid{display:grid;gap:18px}
-  .services{grid-template-columns:repeat(3,1fr)}
-  .card{background:var(--card);padding:18px;border-radius:14px;box-shadow:0 6px 18px rgba(8,15,30,0.03)}
-  .card h4{margin:0 0 8px}
-  .kpi{display:flex;gap:18px;align-items:center}
-  .kpi .num{font-weight:800;font-size:20px;color:var(--accent)}
-  .case{
-    display:flex;gap:16px;align-items:flex-start;padding:16px;border-radius:12px;background:#fff;border:1px solid rgba(2,86,214,0.03)
-  }
-
-  /* contact */
-  .contact-grid{display:grid;grid-template-columns:1fr 320px;gap:20px}
-  .input, textarea{
-    width:100%;padding:12px;border-radius:10px;border:1px solid rgba(11,18,32,0.06);font-size:15px
-  }
-  textarea{min-height:120px;resize:vertical}
-
-  footer{padding:28px 0;color:var(--muted);font-size:14px}
-
-  /* small helpers */
   .muted{color:var(--muted)}
   .small{font-size:13px;color:var(--muted)}
-  a.icon-link{color:var(--muted);text-decoration:none}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 18px}
+
+  footer{padding:28px 0;color:var(--muted);font-size:14px;text-align:center}
 </style>
 </head>
 <body>
-<header aria-label="Главная навигация">
+<header>
   <div class="container nav">
     <a class="brand" href="#hero">
-      <div class="logo" aria-hidden="true">DR</div>
+      <div class="logo">DR</div>
       <div>
         <div style="font-weight:800">Денис Романов</div>
-        <div class="small muted">Маркетинг · Консалтинг · Рост бизнеса</div>
+        <div class="small muted">Маркетинг · Консалтинг</div>
       </div>
     </a>
-
-    <nav aria-label="Основное меню">
+    <nav>
       <ul>
         <li><a href="#about">О себе</a></li>
         <li><a href="#services">Услуги</a></li>
@@ -169,211 +106,104 @@ a { color: var(--accent); }
         <li><a href="#contact">Контакты</a></li>
       </ul>
     </nav>
-
     <div style="display:flex;gap:12px;align-items:center">
+      <button class="theme-toggle" id="themeToggle" aria-label="Сменить тему">🌙</button>
       <a class="cta" href="#contact">Написать</a>
-      <button class="burger" aria-label="Открыть меню" onclick="toggleMobile()">
-        ☰
-      </button>
+      <button class="burger" onclick="toggleMobile()">☰</button>
     </div>
   </div>
 </header>
 
 <main>
   <section id="hero">
-    <div class="container hero">
-      <div class="hero-left">
-        <div class="eyebrow">Эксперт по маркетингу</div>
-        <h1>Помогаю бизнесу увеличивать прибыль через маркетинг и продукт</h1>
-        <p class="lead">Консалтинг, стратегия и сопровождение — от аудита маркетинга до внедрения процессов роста. Работал с b2b и b2c проектами, масштабировал продажи и оптимизировал маркетинговые каналы.</p>
-        <div class="hero-cta">
-          <a class="cta" href="#contact">Обсудить проект</a>
-          <a class="light-btn" href="#cases">Ключевые кейсы</a>
-        </div>
-
-        <div style="margin-top:22px;display:flex;gap:12px;align-items:center">
-          <div class="kpi card" style="padding:12px;border-radius:12px">
-            <div>
-              <div class="num">+25%</div>
-              <div class="small muted">Средний рост продаж</div>
-            </div>
-            <div style="border-left:1px solid rgba(11,18,32,0.04);height:36px;margin-left:12px;padding-left:12px">
-              <div class="num">10+</div>
-              <div class="small muted">Ключевых проектов</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <aside>
-        <div class="profile-card" role="region" aria-label="Профиль">
-          <div class="profile-photo" aria-hidden="true">
-            <!-- вставьте сюда свою фотографию через background-image или <img> -->
-          </div>
-          <div class="profile-info">
-            <h3>Денис Романов</h3>
-            <p class="small muted">Маркетолог и предприниматель. Консалтинг, стратегия роста, запуск команд.</p>
-          </div>
-        </div>
-
-        <div style="height:18px"></div>
-
-        <div class="card small">
-          <strong>Формат работы</strong>
-          <div style="margin-top:8px" class="small muted">Аудит → Стратегия → Внедрение → Сопровождение</div>
-        </div>
-      </aside>
+    <div class="container">
+      <h1>Помогаю бизнесу расти через маркетинг</h1>
+      <p class="muted">Стратегия, консалтинг и внедрение. Опыт в B2B и B2C.</p>
+      <a class="cta" href="#contact">Связаться</a>
     </div>
   </section>
 
-  <section id="about" aria-labelledby="about-title">
+  <section id="about">
     <div class="container">
-      <h2 id="about-title">О себе</h2>
-      <p class="muted">Краткая биография и профиль экспертизы. Здесь можно перечислить опыт, отрасли, в которых вы сильны, и ключевые компетенции.</p>
-
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px">
-        <div class="card">
-          <h4>Опыт</h4>
-          <p class="small muted">Более X лет в маркетинге, запускal команды, работал с крупными проектами в e-commerce и сервисах.</p>
-        </div>
-        <div class="card">
-          <h4>Подход</h4>
-          <p class="small muted">Практический, ориентированный на результат: гипотезы → тесты → масштабирование.</p>
-        </div>
-      </div>
+      <h2>О себе</h2>
+      <p class="muted">Краткая биография и ключевая экспертиза.</p>
     </div>
   </section>
 
-  <section id="services" aria-labelledby="services-title">
+  <section id="services">
     <div class="container">
-      <h2 id="services-title">Услуги</h2>
-      <div class="grid services" style="margin-top:18px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
-        <div class="card">
-          <h4>Стратегия роста</h4>
-          <p class="small muted">Анализ воронки, channels, план тестирования и roadmap роста.</p>
-        </div>
-        <div class="card">
-          <h4>Аудит маркетинга</h4>
-          <p class="small muted">Комплексный аудит трафика, CRM, конверсий и рекламных кампаний.</p>
-        </div>
-        <div class="card">
-          <h4>Наставничество и команда</h4>
-          <p class="small muted">Помогаю вырастить внутреннюю команду и провести переход на системную работу.</p>
-        </div>
-      </div>
+      <h2>Услуги</h2>
+      <div class="card">Стратегия роста</div>
+      <div class="card" style="margin-top:12px">Аудит маркетинга</div>
     </div>
   </section>
 
-  <section id="cases" aria-labelledby="cases-title">
+  <section id="cases">
     <div class="container">
-      <h2 id="cases-title">Кейсы</h2>
-      <p class="small muted">Короткие истории успеха — цифры, результат, срок.</p>
-
-      <div style="display:grid;gap:12px;margin-top:18px">
-        <div class="case">
-          <div style="width:72px;height:72px;border-radius:12px;background:linear-gradient(120deg,#fff8e6,#fff);display:flex;align-items:center;justify-content:center;font-weight:800;color:#b46b00">E</div>
-          <div>
-            <strong>e-commerce</strong>
-            <div class="small muted">Увеличение LTV на 32% за 6 месяцев, оптимизация CPA.</div>
-          </div>
-        </div>
-
-        <div class="case">
-          <div style="width:72px;height:72px;border-radius:12px;background:linear-gradient(120deg,#e8f7ff,#fff);display:flex;align-items:center;justify-content:center;font-weight:800;color:#0256d6">S</div>
-          <div>
-            <strong>SaaS / B2B</strong>
-            <div class="small muted">Рост MQL на 40% через контент и автоматизацию лидогенерации.</div>
-          </div>
-        </div>
-      </div>
+      <h2>Кейсы</h2>
+      <div class="card">Рост продаж e-commerce на 30%</div>
     </div>
   </section>
 
-  <section id="contact" aria-labelledby="contact-title">
+  <section id="contact">
     <div class="container">
-      <h2 id="contact-title">Контакты</h2>
-      <p class="small muted">Заполните форму — я свяжусь в рабочее время, либо напишите напрямую в Telegram.</p>
-
-      <div class="contact-grid" style="margin-top:18px">
-        <form class="card" onsubmit="onSubmit(event)">
-          <label class="small" for="name">Имя</label>
-          <input id="name" class="input" required placeholder="Ваше имя">
-
-          <label class="small" for="email" style="margin-top:10px">Email или телефон</label>
-          <input id="email" class="input" required placeholder="email@example.com">
-
-          <label class="small" for="message" style="margin-top:10px">Коротко о проекте</label>
-          <textarea id="message" placeholder="Опишите задачу или оставьте ссылку на проект"></textarea>
-
-          <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
-            <button class="cta" type="submit">Отправить</button>
-            <a class="light-btn" href="https://t.me/" target="_blank" rel="noopener">Telegram</a>
-          </div>
-        </form>
-
-        <aside class="card small muted">
-          <strong>Контактная информация</strong>
-          <div style="margin-top:10px">Email: <a href="mailto:info@example.com">info@example.com</a></div>
-          <div style="margin-top:8px">Telegram: <a href="https://t.me/" target="_blank" rel="noopener">@username</a></div>
-          <div style="margin-top:8px">Формат работы: удалённо / офлайн по договорённости</div>
-        </aside>
-      </div>
+      <h2>Контакты</h2>
+      <form onsubmit="onSubmit(event)" class="card">
+        <input id="name" placeholder="Имя" required style="width:100%;margin-bottom:10px;padding:8px;border-radius:8px;border:1px solid #ccc">
+        <input id="email" placeholder="Email" required style="width:100%;margin-bottom:10px;padding:8px;border-radius:8px;border:1px solid #ccc">
+        <textarea id="message" placeholder="Сообщение" style="width:100%;height:100px;margin-bottom:10px;padding:8px;border-radius:8px;border:1px solid #ccc"></textarea>
+        <button class="cta" type="submit">Отправить</button>
+      </form>
     </div>
   </section>
 </main>
 
 <footer>
-  <div class="wrap">
-    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-      <div class="small muted">© <strong>Денис Романов</strong> — Все права не заявлены</div>
-      <div style="display:flex;gap:12px;align-items:center">
-        <a class="icon-link small" href="#" aria-label="LinkedIn">LinkedIn</a>
-        <a class="icon-link small" href="#" aria-label="Telegram">Telegram</a>
-        <a class="icon-link small" href="#" aria-label="Email">Email</a>
-      </div>
-    </div>
-  </div>
+  © Денис Романов — 2025
 </footer>
 
 <script>
-  // simple smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(a=>{
-    a.addEventListener('click', e=>{
-      const target = document.querySelector(a.getAttribute('href'));
-      if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth',block:'start'}); }
-    });
-  });
+  // Сохранение выбора темы
+  const toggleBtn = document.getElementById('themeToggle');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-  function toggleMobile(){
-    // минимальное мобильное меню (отображает навигацию)
-    let nav = document.querySelector('nav ul');
-    if(!nav) return;
-    if(getComputedStyle(nav).display === 'none'){
-      nav.style.display = 'flex';
-      nav.style.flexDirection = 'column';
-      nav.style.background = 'white';
-      nav.style.position = 'absolute';
-      nav.style.right = '18px';
-      nav.style.top = '66px';
-      nav.style.padding = '12px';
-      nav.style.borderRadius = '12px';
-      nav.style.boxShadow = '0 10px 30px rgba(8,15,30,0.08)';
-    } else {
-      nav.style.display = 'none';
-    }
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    toggleBtn.textContent = theme === 'dark' ? '☀️' : '🌙';
   }
 
+  // Проверяем сохранённый выбор
+  let savedTheme = localStorage.getItem('theme');
+  if(savedTheme){
+    applyTheme(savedTheme);
+  } else {
+    applyTheme(prefersDark ? 'dark' : 'light');
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    let current = document.documentElement.getAttribute('data-theme');
+    let next = current === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+    localStorage.setItem('theme', next);
+  });
+
+  // простая заглушка отправки формы
   function onSubmit(e){
     e.preventDefault();
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const message = document.getElementById('message').value.trim();
-    // Демонстрационная отправка: открываем почтовый клиент
-    const subject = encodeURIComponent('Заявка с сайта — ' + name);
-    const body = encodeURIComponent(message + "\\n\\nКонтакт: " + email);
-    const mailto = 'mailto:info@example.com?subject=' + subject + '&body=' + body;
-    window.location.href = mailto;
-    // В реальном проекте нужно заменить на AJAX-запрос к серверу или интеграцию с CRM.
+    alert("Сообщение отправлено!");
+  }
+
+  function toggleMobile(){
+    let nav = document.querySelector('nav ul');
+    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+    nav.style.flexDirection = 'column';
+    nav.style.background = 'var(--bg)';
+    nav.style.position = 'absolute';
+    nav.style.right = '18px';
+    nav.style.top = '66px';
+    nav.style.padding = '12px';
+    nav.style.borderRadius = '12px';
+    nav.style.boxShadow = '0 10px 30px rgba(8,15,30,0.08)';
   }
 </script>
 </body>
