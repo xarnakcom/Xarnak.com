@@ -6,6 +6,42 @@
 <title>Денис Романов — маркетинг и бизнес</title>
 <meta name="description" content="Персональный сайт: консалтинг, кейсы и контакты. Подставьте свои тексты и изображения.">
 <style>
+
+:root {
+  --bg:#ffffff;
+  --text:#0b1220;
+  --accent:#0256d6;
+  --muted:#6b7280;
+  --card:#f8fafc;
+  --glass: rgba(2,86,214,0.06);
+  --shadow: 0 6px 30px rgba(8,15,30,0.06);
+}
+
+/* Автоматический переход в тёмную тему */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:#0b1220;
+    --text:#f3f4f6;
+    --accent:#3b82f6;
+    --muted:#9ca3af;
+    --card:#1e293b;
+    --glass: rgba(59,130,246,0.08);
+    --shadow: 0 6px 30px rgba(0,0,0,0.5);
+  }
+}
+
+/* Используем переменные */
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+.card {
+  background: var(--card);
+  color: var(--text);
+}
+a { color: var(--accent); }
+.muted { color: var(--muted); }
+
   :root{
     --bg:#ffffff;
     --accent:#0256d6;
